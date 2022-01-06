@@ -1,0 +1,71 @@
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        // Initialize maximum element 
+         int max = candies[0]; 
+         // Traverse array elem to find the highest number  
+         for (int i = 1; i < candies.length; i++) 
+             if (candies[i] > max) 
+                 max = candies[i]; 
+        //Initialize output list
+        List<Boolean> output = new ArrayList<>(); 
+        //Loop through each elem to set output[i] to true or false, depending on the sum of candies[i] and extraCandies
+        for(int i =0; i<candies.length; i++){
+            if(candies[i]+extraCandies<max){
+                output.add(false);
+            }else{
+                output.add(true);
+            }
+        }
+        //finally, return the output list
+        return output;
+    }
+}
+
+
+////////////////////////////////////////////
+without using any methods
+public class prac 
+{
+	
+
+static int[] candies= {2,3,5,1,3};
+static int extracandies=3;
+static int max=0;
+static int[] result =new int[candies.length];
+
+	public static void main(String[] args) 
+	{
+		max=result[0];
+		for(int i=0;i<candies.length;i++)
+		{	
+			if(max<candies[i])
+			{ /// finding max element out of all the candies
+				max=candies[i];//  max element
+			}	
+		}
+		System.out.println("max element among all candies :"+max);
+		System.out.println(" ");
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+		for(int i=0;i<candies.length;i++)
+		{
+			result[i]=candies[i]+extracandies;///adding all th ecandies with extra candies
+			System.out.println("candies + extracandies at "+i+" :"+result[i]);
+		}
+		System.out.println(" ");
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		for(int i=0;i<candies.length;i++)
+		{
+			if(result[i]>=max)////// based on multiple max values change the current logic
+			{
+				System.out.println(true);
+			}
+			else
+				System.out.println(false);
+		}
+		
+		
+	}
+}
+	
+	
+	
